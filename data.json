@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Air Jordan 1 Retro High OG",
+    "price": 180,
+    "category": "lifestyle",
+    "image": "https://weartesters.com/wp-content/uploads/2015/05/Air-Jordan-1-Retro-High-OG-Chicago-Official-Look-Release-Info-1.jpg",
+    "detail": "The timeless classic that started it all. Premium leather and iconic wings logo."
+  },
+  {
+    "id": 2,
+    "name": "Air Jordan 4 'Military Black'",
+    "price": 210,
+    "category": "lifestyle",
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400",
+    "detail": "A versatile colorway with mesh inserts and supportive wings for daily comfort."
+  },
+  {
+    "id": 3,
+    "name": "Air Jordan 11 'Cool Grey'",
+    "price": 225,
+    "category": "lifestyle",
+    "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400",
+    "detail": "Patent leather elegance meets hardwood heritage. Perfect for a premium look."
+  },
+  {
+    "id": 7,
+    "name": "Adidas Ultraboost Light",
+    "price": 190,
+    "category": "performance",
+    "image": "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=400",
+    "detail": "The ultimate recovery run shoe featuring legendary Boost cushioning technology."
+  },
+  {
+    "id": 9,
+    "name": "Nike Air Zoom Pegasus 40",
+    "price": 130,
+    "category": "performance",
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400",
+    "detail": "Reliable, durable, and comfortable. The gold standard for everyday athletes."
+  },
+  {
+    "id": 10,
+    "name": "New Balance Fresh Foam 1080",
+    "price": 165,
+    "category": "performance",
+    "image": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400",
+    "detail": "Luxurious cushioning meets modern design for long-distance stability."
+  }
+]

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/><script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Nexus - Details</title>
+</head>
+<body class="bg-[#131313] text-white p-8">
+    <div class="max-w-md mx-auto">
+        <a href="product.html" class="text-[10px] font-black text-gray-500 uppercase tracking-widest">← Back</a>
+        <div class="mt-10 bg-[#1c1c1c] rounded-[3rem] p-12 border border-white/5 flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600" class="shoe-img w-full rotate-[-15deg]">
+        </div>
+        <div class="mt-8">
+            <h1 id="p-name" class="text-4xl font-black italic uppercase">Apex Nitro</h1>
+            <p id="p-price" class="text-[#c3f5ff] text-2xl font-bold mt-2">$299.00</p>
+            <p class="text-gray-500 mt-6 text-sm leading-relaxed">Experience the next generation of performance with ultimate bounce and grip.</p>
+        </div>
+        <button onclick="addToCartDetail()" class="w-full py-5 bg-[#c3f5ff] text-black font-black rounded-2xl mt-12 hover:scale-[1.02] shadow-xl uppercase text-xs">Add to Cart</button>
+    </div>
+    <script>
+        function addToCartDetail() {
+            const name = document.getElementById('p-name').innerText;
+            const price = parseFloat(document.getElementById('p-price').innerText.replace('$', ''));
+            let cart = JSON.parse(localStorage.getItem('nexus_cart')) || [];
+            cart.push({ id: Date.now(), name, price });
+            localStorage.setItem('nexus_cart', JSON.stringify(cart));
+            alert("Added to cart!");
+        }
+    </script>
+</body>
+</html>

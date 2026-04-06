@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Nexus - Cart</title>
+</head>
+<body class="min-h-screen flex justify-center p-6">
+    <div class="w-full max-w-[400px] z-10">
+        <h1 class="text-3xl font-black italic uppercase mb-10 text-[#c3f5ff] tracking-tighter">Your Bag.</h1>
+        
+        <div id="cart-items" class="space-y-4"></div>
+        
+        <div class="mt-10 border-t border-white/10 pt-8">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Total</span>
+                <span id="total-price" class="text-4xl font-black text-[#c3f5ff] tracking-tighter">$0.00</span>
+            </div>
+            <a href="checkout.html" id="checkout-btn" class="block w-full py-6 bg-[#c3f5ff] text-black text-center font-black rounded-[2rem] shadow-xl hover:bg-white transition-all uppercase tracking-widest text-sm">
+                Checkout
+            </a>
+            <div class="text-center mt-6">
+                <a href="product.html" class="text-[9px] font-bold text-gray-500 hover:text-white uppercase tracking-widest">
+                    ← Continue Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            const container = document.getElementById('cart-items');
+            let cart = JSON.parse(localStorage.getItem('nexus_cart')) || [];
+            let total = 0;
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p class="text-gray-600 uppercase text-[10px] font-bold text-center py-20 tracking-widest">Your bag is empty</p>';
+                document.getElementById('total-price').innerText = '$0.00';
+                document.getElementById('checkout-btn').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `<div class="bg-white/5 p-6 rounded-[2rem] flex justify-between items-center border border-white/5 backdrop-blur-md">
+                    <div>
+                        <p class="font-black italic uppercase text-xs text-white tracking-tight">${item.name}</p>
+                        <p class="text-[#c3f5ff] font-bold text-xs mt-1">$${item.price}</p>
+                    </div>
+                    <button onclick="remove(${index})" class="text-red-500 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Remove</button>
+                </div>`;
+            }).join('');
+            
+            document.getElementById('total-price').innerText = '$' + total.toFixed(2);
+            document.getElementById('checkout-btn').style.display = 'block';
+        }
+
+        function remove(i) {
+            let cart = JSON.parse(localStorage.getItem('nexus_cart')) || [];
+            cart.splice(i, 1);
+            localStorage.setItem('nexus_cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        loadCart();
+    </script>
+</body>
+</html>
